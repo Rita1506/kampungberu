@@ -34,6 +34,9 @@ $menu_aktif = $menu_aktif ?? '';
     <!-- Lapisan pengganti Bootstrap + komponen tambahan -->
     <link rel="stylesheet" href="<?= e($root) ?>assets/css/publik.css">
 
+    <!-- Perbaikan UX: overlay loading saat submit -->
+    <link rel="stylesheet" href="<?= e($root) ?>assets/css/ux.css">
+
 </head>
 
 <?php
