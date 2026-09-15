@@ -1,0 +1,193 @@
+/* =========================================================
+   UX TAMBAHAN (Fase perbaikan admin)
+   ----------------------------------------------------------
+   Berisi:
+   1. Perbaikan sidebar mobile (bisa ditutup di HP)
+   2. Tombol logout selalu terlihat di layar pendek
+   3. Overlay "Memproses..." saat form dikirim
+   File sengaja TERPISAH dari admin.css/style.css agar
+   mudah diatur dan tidak menimpa CSS lain.
+   ========================================================= */
+
+
+/* =========================================================
+   1. SIDEBAR MOBILE
+   ----------------------------------------------------------
+   Aturan kunci di admin.css memaksa transform:none untuk
+   semua layar, sehingga drawer di HP selalu terbuka.
+   Di sini dikunci ulang: desktop tetap terlihat, mobile
+   tersembunyi sampai tombol .show diberikan oleh JS.
+   ========================================================= */
+
+   @media (min-width: 992px) {
+    body.admin-app .sidebar {
+        transform: none;
+    }
+}
+
+@media (max-width: 991px) {
+
+    body.admin-app .sidebar {
+        transform: translateX(-100%);
+        transition: transform .25s ease;
+        box-shadow: var(--shadow-md);
+    }
+
+    body.admin-app .sidebar.show {
+        transform: translateX(0);
+    }
+
+    /* Tombol X di dalam sidebar hanya muncul di layar sentuh */
+    .sidebar-close {
+        display: inline-flex;
+    }
+}
+
+/* Tombol tutup (X) di dalam sidebar */
+.sidebar-close {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    flex: 0 0 34px;
+    width: 34px;
+    height: 34px;
+    border: none;
+    border-radius: var(--r-sm, 9px);
+    background: var(--purple-100, #F3EFF9);
+    color: var(--purple-700, #7B68A0);
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.sidebar-close:hover {
+    background: var(--purple-200, #E5DEF3);
+}
+
+
+/* =========================================================
+   2. LOGOUT SELALU TERLIHAT DI LAYAR PENDEK
+   ----------------------------------------------------------
+   Area menu boleh bergulir, tetapi blok logout dijepit di
+   dasar sidebar sehingga tidak pernah terpotong.
+   ========================================================= */
+
+body.admin-app .sidebar .sidebar-nav-menu {
+    overflow-y: auto;
+    min-height: 0;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-strong, #DDD8EA) transparent;
+}
+
+body.admin-app .sidebar .sidebar-nav-menu::-webkit-scrollbar {
+    width: 6px;
+}
+
+body.admin-app .sidebar .sidebar-nav-menu::-webkit-scrollbar-thumb {
+    background: var(--border-strong, #DDD8EA);
+    border-radius: 999px;
+}
+
+body.admin-app .sidebar .sidebar-nav-menu::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.sidebar-nav-bawah {
+    flex: 0 0 auto;
+    padding-top: 10px;
+    border-top: 1px solid var(--border, #ECE9F3);
+}
+
+/* Di layar laptop yang tingginya terbatas, rapatkan sedikit menu
+   agar muat tanpa harus menggulir. */
+@media (max-height: 800px) and (min-width: 992px) {
+
+    .sidebar-brand {
+        padding: 14px 16px;
+    }
+
+    .sidebar-section {
+        padding: 11px 14px 5px;
+    }
+
+    .sidebar-link {
+        padding: 8px 14px;
+    }
+}
+
+
+/* =========================================================
+   3. OVERLAY LOADING SAAT SUBMIT FORM
+   ----------------------------------------------------------
+   Mencegah pengguna mengklik tombol berkali-kali ketika
+   data sedang dikirim (mis. unggah foto, login, pengaduan).
+   Dipakai di halaman admin maupun publik.
+   ========================================================= */
+
+.ux-loading {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    background: rgba(55, 53, 63, .45);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .2s ease, visibility .2s ease;
+}
+
+.ux-loading.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.ux-loading-card {
+    min-width: 210px;
+    max-width: 90vw;
+    background: #fff;
+    border-radius: var(--r-md, 16px);
+    box-shadow: 0 18px 48px rgba(55, 53, 63, .25);
+    padding: 28px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+}
+
+.ux-spinner {
+    font-size: 38px;
+    line-height: 1;
+    color: var(--purple-600, var(--purple, #8E7AB5));
+    animation: ux-putar .9s linear infinite;
+}
+
+.ux-loading-card strong {
+    font-size: 15px;
+    color: var(--ink, var(--text-dark, #292530));
+}
+
+.ux-loading-card span {
+    font-size: 12.5px;
+    color: var(--muted, var(--text-muted, #85808D));
+}
+
+@keyframes ux-putar {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Tombol yang sedang menunggu pengiriman */
+.ux-tombol-kirim[disabled] {
+    cursor: wait;
+    opacity: .82;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ux-spinner {
+        animation-duration: 1.8s;
+    }
+}
