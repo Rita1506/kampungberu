@@ -1,0 +1,2491 @@
+/* =========================================================
+   SI PA'MASE-MASE
+   STYLE.CSS
+   FINAL REDESIGN
+   =========================================================
+   Tema:
+   White + Soft Purple
+   Modern - Clean - Elegant
+   Responsive HP / Tablet / Laptop
+   ========================================================= */
+
+
+/* =========================================================
+   1. ROOT
+   ========================================================= */
+
+:root {
+    --purple: #8E7AB5;
+    --purple-dark: #705B99;
+    --purple-deep: #5D4A83;
+    --purple-light: #F2EDF8;
+    --purple-soft: #F8F5FB;
+    --purple-pale: #FBF9FD;
+
+    --white: #FFFFFF;
+    --black: #25212C;
+
+    --text: #4E4A55;
+    --text-dark: #292530;
+    --text-muted: #85808D;
+    --text-light: #A7A1AD;
+
+    --border: #E9E4EE;
+    --border-soft: #F0ECF3;
+
+    --success: #5C9B73;
+    --warning: #C7924D;
+    --danger: #C56D6D;
+
+    --shadow-sm: 0 5px 18px rgba(67, 48, 91, 0.06);
+    --shadow: 0 12px 30px rgba(67, 48, 91, 0.09);
+    --shadow-lg: 0 20px 50px rgba(67, 48, 91, 0.14);
+
+    --radius-sm: 10px;
+    --radius: 16px;
+    --radius-lg: 22px;
+    --radius-xl: 30px;
+
+    --transition: all .3s ease;
+}
+
+
+/* =========================================================
+   2. RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--white);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+    font-family: inherit;
+}
+
+::selection {
+    background: var(--purple);
+    color: white;
+}
+
+
+/* =========================================================
+   3. SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #F5F3F7;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #B5A6C9;
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--purple);
+}
+
+
+/* =========================================================
+   4. NAVBAR
+   ========================================================= */
+
+.navbar {
+    min-height: 76px;
+    background: rgba(255, 255, 255, 0.97) !important;
+    border-bottom: 1px solid rgba(142, 122, 181, 0.10);
+    box-shadow: 0 3px 18px rgba(45, 33, 60, 0.05) !important;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    z-index: 1000;
+}
+
+.navbar .container {
+    min-height: 76px;
+}
+
+
+/* =========================================================
+   5. LOGO NAVBAR
+   ========================================================= */
+
+.navbar-brand {
+    color: var(--purple) !important;
+    margin-right: 25px;
+    padding: 0;
+    transition: var(--transition);
+}
+
+.navbar-brand:hover {
+    transform: translateY(-1px);
+}
+
+.logotakalar {
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
+    margin-right: 11px;
+    border-radius: 50%;
+    background: var(--purple-soft);
+    padding: 3px;
+}
+
+.brand-name {
+    display: block;
+    color: var(--purple);
+    font-size: 17px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -.2px;
+}
+
+.brand-subtitle {
+    color: var(--text-muted);
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1.4;
+    margin-top: 2px;
+}
+
+
+/* =========================================================
+   6. NAV MENU
+   ========================================================= */
+
+.navbar-nav {
+    gap: 4px;
+}
+
+.navbar .nav-link {
+    position: relative;
+    color: #5C5763 !important;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 9px 14px !important;
+    border-radius: 9px;
+    transition: var(--transition);
+}
+
+.navbar .nav-link:hover {
+    color: var(--purple) !important;
+    background: var(--purple-light);
+}
+
+.navbar .nav-link.active {
+    color: var(--purple) !important;
+    background: var(--purple-light);
+}
+
+.navbar .nav-link.active::after {
+    content: "";
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: 3px;
+    height: 2px;
+    border-radius: 20px;
+    background: var(--purple);
+}
+
+
+/* =========================================================
+   7. LOGIN BUTTON
+   ========================================================= */
+
+.btn-login {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    background: var(--purple);
+    color: white !important;
+
+    border: 1px solid var(--purple);
+    border-radius: 10px;
+
+    padding: 10px 17px;
+    font-size: 13px;
+    font-weight: 700;
+
+    box-shadow: 0 6px 15px rgba(142, 122, 181, 0.20);
+    transition: var(--transition);
+}
+
+.btn-login:hover {
+    background: var(--purple-dark);
+    border-color: var(--purple-dark);
+    color: white !important;
+    transform: translateY(-2px);
+    box-shadow: 0 9px 20px rgba(142, 122, 181, 0.27);
+}
+
+.btn-login i {
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   8. MOBILE NAVBAR
+   ========================================================= */
+
+.navbar-toggler {
+    border: 1px solid var(--border) !important;
+    border-radius: 10px;
+    padding: 7px 9px;
+    box-shadow: none !important;
+}
+
+.navbar-toggler:focus {
+    box-shadow: 0 0 0 3px rgba(142, 122, 181, .12) !important;
+}
+
+.navbar-toggler-icon {
+    width: 20px;
+    height: 20px;
+}
+
+
+/* =========================================================
+   9. HERO
+   ========================================================= */
+
+.hero-section {
+    position: relative;
+    min-height: 610px;
+
+    display: flex;
+    align-items: center;
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(39, 29, 51, .78) 0%,
+            rgba(63, 48, 78, .58) 38%,
+            rgba(76, 57, 91, .32) 68%,
+            rgba(45, 33, 56, .30) 100%
+        ),
+        url("../img/fotodesa.jpe");
+
+    background-size: cover;
+
+    /*
+       Posisi dibuat sedikit ke atas agar jalan,
+       gapura, dan tulisan pada foto lebih terlihat.
+    */
+    background-position: center 45%;
+
+    background-repeat: no-repeat;
+
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+
+    width: 450px;
+    height: 450px;
+
+    right: -180px;
+    top: -220px;
+
+    border-radius: 50%;
+
+    background: rgba(211, 193, 231, .10);
+    border: 1px solid rgba(255, 255, 255, .07);
+}
+
+.hero-section::after {
+    content: "";
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 130px;
+
+    background: linear-gradient(
+        to top,
+        rgba(255, 255, 255, .08),
+        transparent
+    );
+
+    pointer-events: none;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* =========================================================
+   10. HERO CONTENT
+   ========================================================= */
+
+.hero-content {
+    max-width: 650px;
+    padding: 45px 0;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 7px 14px;
+
+    border: 1px solid rgba(255, 255, 255, .20);
+    border-radius: 50px;
+
+    background: rgba(255, 255, 255, .10);
+
+    color: #F1EBF8;
+
+    font-size: 11.5px;
+    font-weight: 600;
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    margin-bottom: 18px;
+}
+
+.hero-badge i {
+    color: #D9C8EE;
+}
+
+
+/* =========================================================
+   11. HERO TITLE
+   ========================================================= */
+
+.hero-content h1 {
+    color: white;
+
+    font-size: clamp(34px, 4.3vw, 52px);
+    font-weight: 800;
+
+    line-height: 1.08;
+    letter-spacing: -1.3px;
+
+    margin-bottom: 7px;
+}
+
+.hero-content h2 {
+    color: #DCCFEA;
+
+    font-size: clamp(18px, 2.4vw, 25px);
+    font-weight: 500;
+
+    line-height: 1.35;
+
+    margin-bottom: 17px;
+}
+
+.hero-content p {
+    max-width: 590px;
+
+    color: rgba(255, 255, 255, .82);
+
+    font-size: 13.5px;
+    line-height: 1.8;
+
+    margin-bottom: 24px;
+}
+
+
+/* =========================================================
+   12. HERO BUTTONS
+   ========================================================= */
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.btn-primary-custom {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    background: var(--purple);
+    color: white !important;
+
+    border: 1px solid var(--purple);
+    border-radius: 10px;
+
+    padding: 11px 19px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .14);
+
+    transition: var(--transition);
+}
+
+.btn-primary-custom:hover {
+    background: var(--purple-dark);
+    border-color: var(--purple-dark);
+
+    color: white !important;
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 12px 25px rgba(0, 0, 0, .20);
+}
+
+.btn-outline-custom {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    background: rgba(255, 255, 255, .08);
+    color: white !important;
+
+    border: 1px solid rgba(255, 255, 255, .42);
+    border-radius: 10px;
+
+    padding: 11px 19px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    backdrop-filter: blur(6px);
+
+    transition: var(--transition);
+}
+
+.btn-outline-custom:hover {
+    background: white;
+    border-color: white;
+
+    color: var(--purple-dark) !important;
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   13. HERO CARD
+   ========================================================= */
+
+.hero-card {
+    position: relative;
+
+    width: 100%;
+    max-width: 300px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    padding: 30px 26px;
+
+    border-radius: 22px;
+
+    background: rgba(255, 255, 255, .12);
+    border: 1px solid rgba(255, 255, 255, .22);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, .16);
+
+    color: white;
+
+    overflow: hidden;
+}
+
+.hero-card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 140px;
+    height: 140px;
+
+    right: -75px;
+    top: -75px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, .07);
+}
+
+.hero-icon {
+    width: 66px;
+    height: 66px;
+
+    margin: 0 auto 17px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 19px;
+
+    background: rgba(255, 255, 255, .13);
+    border: 1px solid rgba(255, 255, 255, .18);
+
+    color: #E1D4EE;
+
+    font-size: 28px;
+
+    position: relative;
+}
+
+.hero-card h4 {
+    color: white;
+
+    font-size: 18px;
+    font-weight: 750;
+
+    margin-bottom: 8px;
+}
+
+.hero-card p {
+    color: rgba(255, 255, 255, .76);
+
+    font-size: 13px;
+    line-height: 1.75;
+
+    margin: 0;
+}
+
+
+/* =========================================================
+   14. INFO SECTION
+   ========================================================= */
+
+.info-section {
+    position: relative;
+
+    padding: 60px 0 65px;
+
+    background: white;
+}
+
+.info-card {
+    position: relative;
+
+    height: 100%;
+
+    padding: 25px 23px;
+
+    background: white;
+
+    border: 1px solid var(--border);
+    border-radius: 16px;
+
+    box-shadow: var(--shadow-sm);
+
+    overflow: hidden;
+
+    transition: var(--transition);
+}
+
+.info-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 65px;
+    height: 65px;
+
+    right: -32px;
+    bottom: -32px;
+
+    border-radius: 50%;
+
+    background: var(--purple-light);
+
+    transition: var(--transition);
+}
+
+.info-card:hover {
+    transform: translateY(-6px);
+
+    border-color: #D8CDE5;
+
+    box-shadow: var(--shadow);
+}
+
+.info-card:hover::after {
+    transform: scale(1.4);
+}
+
+.info-icon {
+    position: relative;
+    z-index: 1;
+
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: var(--purple-light);
+    color: var(--purple);
+
+    font-size: 21px;
+
+    margin-bottom: 15px;
+
+    transition: var(--transition);
+}
+
+.info-card:hover .info-icon {
+    background: var(--purple);
+    color: white;
+
+    transform: scale(1.05);
+}
+
+.info-card h5 {
+    position: relative;
+    z-index: 1;
+
+    color: var(--text-dark);
+
+    font-size: 16px;
+    font-weight: 750;
+
+    margin-bottom: 7px;
+}
+
+.info-card p {
+    position: relative;
+    z-index: 1;
+
+    color: var(--text-muted);
+
+    font-size: 13px;
+    line-height: 1.7;
+
+    margin: 0;
+}
+
+
+/* =========================================================
+   15. CATEGORY SECTION
+   ========================================================= */
+
+.category-section {
+    position: relative;
+
+    padding: 75px 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            #FAF9FC 0%,
+            #F7F4FA 100%
+        );
+}
+
+.category-section::before {
+    content: "";
+
+    position: absolute;
+
+    width: 330px;
+    height: 330px;
+
+    left: -170px;
+    top: 80px;
+
+    border-radius: 50%;
+
+    background: rgba(142, 122, 181, .05);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   16. SECTION HEADING
+   ========================================================= */
+
+.section-heading {
+    position: relative;
+    z-index: 1;
+
+    margin-bottom: 38px;
+}
+
+.section-heading > span,
+.section-label {
+    display: inline-block;
+
+    color: var(--purple);
+
+    font-size: 10.5px;
+    font-weight: 800;
+
+    letter-spacing: 1.6px;
+
+    margin-bottom: 7px;
+}
+
+.section-heading h2 {
+    color: var(--text-dark);
+
+    font-size: clamp(25px, 3.5vw, 34px);
+    font-weight: 800;
+
+    letter-spacing: -.6px;
+
+    margin-bottom: 9px;
+}
+
+.section-heading p {
+    max-width: 600px;
+
+    margin: 0 auto;
+
+    color: var(--text-muted);
+
+    font-size: 13.5px;
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   17. CATEGORY CARD
+   ========================================================= */
+
+.category-card {
+    position: relative;
+
+    height: 100%;
+
+    padding: 23px 20px 21px;
+
+    background: white;
+
+    border: 1px solid var(--border);
+    border-radius: 18px;
+
+    text-align: center;
+
+    box-shadow: var(--shadow-sm);
+
+    overflow: hidden;
+
+    transition: var(--transition);
+}
+
+.category-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 3px;
+
+    background: linear-gradient(
+        90deg,
+        var(--purple),
+        #B9A8D0,
+        var(--purple)
+    );
+
+    transform: scaleX(0);
+
+    transition: var(--transition);
+}
+
+.category-card:hover {
+    transform: translateY(-7px);
+
+    border-color: #D8CDE5;
+
+    box-shadow: var(--shadow-lg);
+}
+
+.category-card:hover::before {
+    transform: scaleX(1);
+}
+
+
+/* =========================================================
+   18. CATEGORY ICON
+   ========================================================= */
+
+.category-icon {
+    position: relative;
+
+    width: 88px;
+    height: 88px;
+
+    margin: 0 auto 17px;
+
+    padding: 11px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 23px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #FFFFFF,
+            #F4EFF9
+        );
+
+    border: 1px solid #E2D9EB;
+
+    box-shadow:
+        0 7px 18px rgba(86, 62, 110, .08);
+
+    transition: var(--transition);
+}
+
+.category-card:hover .category-icon {
+    transform: translateY(-3px) scale(1.03);
+
+    background:
+        linear-gradient(
+            145deg,
+            #F9F6FC,
+            #EEE7F5
+        );
+
+    box-shadow:
+        0 11px 24px rgba(86, 62, 110, .13);
+}
+
+
+/* =========================================================
+   19. LOGO KATEGORI
+   ========================================================= */
+
+.kategori-logo {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center;
+
+    border-radius: 14px;
+}
+
+.category-icon > i {
+    color: var(--purple);
+
+    font-size: 32px;
+}
+
+
+/* =========================================================
+   20. CATEGORY TEXT
+   ========================================================= */
+
+.category-card h4 {
+    color: var(--text-dark);
+
+    font-size: 15.5px;
+    font-weight: 750;
+
+    line-height: 1.4;
+
+    margin-bottom: 7px;
+}
+
+.category-card p {
+    min-height: 45px;
+
+    color: var(--text-muted);
+
+    font-size: 12.5px;
+    line-height: 1.65;
+
+    margin-bottom: 12px;
+}
+
+
+/* =========================================================
+   21. CATEGORY LINK
+   ========================================================= */
+
+.category-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    color: var(--purple) !important;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    padding: 7px 12px;
+
+    border-radius: 9px;
+
+    transition: var(--transition);
+}
+
+.category-link i {
+    transition: var(--transition);
+}
+
+.category-link:hover {
+    color: var(--purple-dark) !important;
+    background: var(--purple-light);
+}
+
+.category-link:hover i {
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   22. VISION SECTION
+   ========================================================= */
+
+.vision-section {
+    position: relative;
+
+    padding: 75px 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            #FFFFFF 0%,
+            #FAF8FC 100%
+        );
+
+    overflow: hidden;
+}
+
+.vision-section::before {
+    content: "";
+
+    position: absolute;
+
+    width: 260px;
+    height: 260px;
+
+    left: -130px;
+    top: 90px;
+
+    border-radius: 50%;
+
+    background: rgba(142, 122, 181, .045);
+
+    pointer-events: none;
+}
+
+.vision-section::after {
+    content: "";
+
+    position: absolute;
+
+    width: 200px;
+    height: 200px;
+
+    right: -100px;
+    bottom: -80px;
+
+    border-radius: 50%;
+
+    background: rgba(142, 122, 181, .035);
+
+    pointer-events: none;
+}
+
+.vision-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.vision-section .section-heading {
+    margin-bottom: 38px;
+}
+
+
+/* =========================================================
+   23. VISION & MISSION CARD
+   ========================================================= */
+
+.vision-card,
+.mission-card {
+    position: relative;
+
+    height: 100%;
+
+    background: #FFFFFF;
+
+    border: 1px solid #E9E4EE;
+
+    border-radius: 22px;
+
+    padding: 30px;
+
+    box-shadow:
+        0 10px 30px rgba(67, 48, 91, .07);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        border-color .3s ease;
+
+    overflow: hidden;
+}
+
+.vision-card:hover,
+.mission-card:hover {
+    transform: translateY(-6px);
+
+    border-color: #D7CBE5;
+
+    box-shadow:
+        0 18px 40px rgba(67, 48, 91, .12);
+}
+
+
+/* =========================================================
+   24. VISION DECORATION
+   ========================================================= */
+
+.vision-card::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 5px;
+
+    background:
+        linear-gradient(
+            180deg,
+            var(--purple),
+            #B9A6D1
+        );
+}
+
+.mission-card::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 5px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #A48BC4,
+            var(--purple-dark)
+        );
+}
+
+.vision-card::after,
+.mission-card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 170px;
+    height: 170px;
+
+    right: -90px;
+    bottom: -90px;
+
+    border-radius: 50%;
+
+    background: rgba(142, 122, 181, .055);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   25. VISION ICON
+   ========================================================= */
+
+.vision-icon,
+.mission-icon {
+    width: 54px;
+    height: 54px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #F3EDF9,
+            #E8DDF2
+        );
+
+    color: var(--purple);
+
+    font-size: 22px;
+
+    margin-bottom: 17px;
+
+    border: 1px solid #E0D5E9;
+
+    box-shadow:
+        0 6px 16px rgba(86, 62, 110, .08);
+
+    position: relative;
+    z-index: 1;
+
+    transition: var(--transition);
+}
+
+.vision-card:hover .vision-icon,
+.mission-card:hover .mission-icon {
+    background: var(--purple);
+
+    color: white;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 9px 20px rgba(142, 122, 181, .20);
+}
+
+.vision-icon i,
+.mission-icon i {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* =========================================================
+   26. VISION & MISSION TITLE
+   ========================================================= */
+
+.vision-card h3,
+.mission-card h3 {
+    color: var(--text-dark);
+
+    font-size: 21px;
+    font-weight: 800;
+
+    margin-bottom: 12px;
+
+    position: relative;
+    z-index: 1;
+}
+
+.vision-card > p {
+    color: var(--text-muted);
+
+    font-size: 13.5px;
+
+    line-height: 1.9;
+
+    margin: 0;
+
+    position: relative;
+    z-index: 1;
+}
+
+
+/* =========================================================
+   27. MISSION TITLE
+   ========================================================= */
+
+.mission-title {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    margin-bottom: 20px;
+
+    position: relative;
+    z-index: 1;
+}
+
+.mission-title .mission-icon {
+    flex-shrink: 0;
+
+    margin: 0;
+}
+
+.mission-title h3 {
+    margin: 0;
+}
+
+
+/* =========================================================
+   28. MISSION LIST
+   ========================================================= */
+
+.mission-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 9px;
+
+    position: relative;
+    z-index: 1;
+}
+
+.mission-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+
+    padding: 11px 12px;
+
+    border-radius: 13px;
+
+    background: #FBF9FD;
+
+    border: 1px solid #F0EBF4;
+
+    transition:
+        background .3s ease,
+        border-color .3s ease,
+        transform .3s ease,
+        box-shadow .3s ease;
+
+    position: relative;
+    z-index: 1;
+}
+
+.mission-item:hover {
+    background: #F5EFF9;
+
+    border-color: #E4D9EC;
+
+    transform: translateX(3px);
+
+    box-shadow:
+        0 5px 15px rgba(67, 48, 91, .05);
+}
+
+.mission-item > span {
+    flex-shrink: 0;
+
+    width: 33px;
+    height: 33px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #F0E8F6,
+            #E8DDF1
+        );
+
+    color: var(--purple);
+
+    font-size: 10px;
+    font-weight: 800;
+
+    border: 1px solid #DFD3E8;
+
+    transition: var(--transition);
+}
+
+.mission-item:hover > span {
+    background: var(--purple);
+
+    color: white;
+
+    border-color: var(--purple);
+
+    transform: scale(1.04);
+}
+
+.mission-item p {
+    color: var(--text);
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    margin: 4px 0 0;
+}
+
+
+/* =========================================================
+   29. ABOUT SECTION
+   ========================================================= */
+
+.about-section {
+    padding: 75px 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            #F8F6FA 0%,
+            #FBFAFC 100%
+        );
+}
+
+.about-section .row {
+    position: relative;
+}
+
+
+/* =========================================================
+   30. ABOUT IMAGE
+   ========================================================= */
+
+.about-image {
+    position: relative;
+
+    min-height: 340px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 35px;
+
+    background: white;
+
+    border: 1px solid var(--border);
+
+    border-radius: 26px;
+
+    box-shadow: var(--shadow);
+
+    overflow: hidden;
+}
+
+.about-image::before {
+    content: "";
+
+    position: absolute;
+
+    width: 230px;
+    height: 230px;
+
+    left: -90px;
+    bottom: -120px;
+
+    border-radius: 50%;
+
+    background: var(--purple-light);
+}
+
+.about-image::after {
+    content: "";
+
+    position: absolute;
+
+    width: 160px;
+    height: 160px;
+
+    right: -70px;
+    top: -80px;
+
+    border-radius: 50%;
+
+    background: #F6F1FA;
+}
+
+
+/* =========================================================
+   31. ABOUT LOGO
+   ========================================================= */
+
+.about-logo {
+    position: relative;
+    z-index: 2;
+
+    width: 210px;
+    height: 210px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: white;
+
+    border: 1px solid #E8E0EF;
+
+    box-shadow:
+        0 15px 40px rgba(68, 49, 90, .10);
+
+    padding: 23px;
+}
+
+.about-logo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+
+/* =========================================================
+   32. ABOUT CONTENT
+   ========================================================= */
+
+.about-section .section-label {
+    margin-bottom: 8px;
+}
+
+.about-section h2 {
+    color: var(--text-dark);
+
+    font-size: clamp(27px, 3.7vw, 37px);
+    font-weight: 800;
+
+    line-height: 1.2;
+    letter-spacing: -.7px;
+
+    margin-bottom: 16px;
+}
+
+.about-section p {
+    color: var(--text-muted);
+
+    font-size: 13.5px;
+    line-height: 1.85;
+
+    margin-bottom: 14px;
+}
+
+
+/* =========================================================
+   33. ABOUT BUTTON
+   ========================================================= */
+
+.about-section .btn-primary-custom {
+    margin-top: 6px;
+}
+
+
+/* =========================================================
+   34. CTA SECTION
+   ========================================================= */
+
+.cta-section {
+    position: relative;
+
+    padding: 70px 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #705B99 0%,
+            #8E7AB5 55%,
+            #9A86BE 100%
+        );
+
+    overflow: hidden;
+}
+
+.cta-section::before {
+    content: "";
+
+    position: absolute;
+
+    width: 360px;
+    height: 360px;
+
+    right: -150px;
+    top: -200px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(255, 255, 255, .10);
+}
+
+.cta-section::after {
+    content: "";
+
+    position: absolute;
+
+    width: 240px;
+    height: 240px;
+
+    left: -140px;
+    bottom: -160px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, .05);
+}
+
+.cta-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* =========================================================
+   35. CTA BOX
+   ========================================================= */
+
+.cta-box {
+    max-width: 700px;
+
+    margin: 0 auto;
+}
+
+.cta-icon {
+    width: 61px;
+    height: 61px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, .12);
+
+    border: 1px solid rgba(255, 255, 255, .18);
+
+    color: white;
+
+    font-size: 25px;
+}
+
+.cta-box h2 {
+    color: white;
+
+    font-size: clamp(25px, 3.6vw, 34px);
+    font-weight: 800;
+
+    line-height: 1.25;
+
+    margin-bottom: 11px;
+}
+
+.cta-box p {
+    color: rgba(255, 255, 255, .82);
+
+    font-size: 13.5px;
+
+    margin-bottom: 22px;
+}
+
+
+/* =========================================================
+   36. CTA BUTTON
+   ========================================================= */
+
+.btn-white-custom {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    background: white;
+    color: var(--purple-dark) !important;
+
+    border: 1px solid white;
+
+    border-radius: 10px;
+
+    padding: 11px 19px;
+
+    font-size: 13px;
+    font-weight: 750;
+
+    box-shadow: 0 8px 20px rgba(45, 31, 59, .14);
+
+    transition: var(--transition);
+}
+
+.btn-white-custom:hover {
+    background: #F9F6FC;
+
+    color: var(--purple-dark) !important;
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 12px 25px rgba(45, 31, 59, .20);
+}
+
+
+/* =========================================================
+   37. FOOTER
+   ========================================================= */
+
+.footer {
+    padding: 60px 0 20px;
+
+    background: #27232D;
+
+    color: #BEB8C5;
+}
+
+
+/* =========================================================
+   38. FOOTER BRAND
+   ========================================================= */
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 15px;
+}
+
+.footer-logo {
+    flex-shrink: 0;
+
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 3px;
+
+    border-radius: 8px;
+
+    background: rgba(255, 255, 255, .08);
+
+    border: 1px solid rgba(255, 255, 255, .08);
+}
+
+.footer-logo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+.footer-brand h4 {
+    color: white;
+
+    font-size: 16px;
+    font-weight: 800;
+
+    margin: 0 0 2px;
+}
+
+.footer-brand p {
+    color: #9E98A7;
+
+    font-size: 10.5px;
+
+    margin: 0;
+}
+
+
+/* =========================================================
+   39. FOOTER DESCRIPTION
+   ========================================================= */
+
+.footer-description {
+    max-width: 410px;
+
+    color: #9E98A7;
+
+    font-size: 12.5px;
+
+    line-height: 1.75;
+
+    margin: 0;
+}
+
+
+/* =========================================================
+   40. FOOTER HEADINGS
+   ========================================================= */
+
+.footer h5 {
+    color: white;
+
+    font-size: 14.5px;
+    font-weight: 750;
+
+    margin-bottom: 17px;
+}
+
+
+/* =========================================================
+   41. FOOTER MENU
+   ========================================================= */
+
+.footer-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footer-menu li a {
+    display: inline-block;
+
+    color: #A8A2AE;
+
+    font-size: 12.5px;
+
+    transition: var(--transition);
+}
+
+.footer-menu li a:hover {
+    color: #DDD3EA;
+
+    transform: translateX(3px);
+}
+
+
+/* =========================================================
+   42. FOOTER INFO
+   ========================================================= */
+
+.footer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-info li {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+
+    color: #A8A2AE;
+
+    font-size: 12.5px;
+
+    line-height: 1.65;
+}
+
+.footer-info li i {
+    flex-shrink: 0;
+
+    color: #BCA9D3;
+
+    font-size: 14px;
+
+    margin-top: 4px;
+}
+
+
+/* =========================================================
+   43. FOOTER HR
+   ========================================================= */
+
+.footer hr {
+    border: 0;
+
+    border-top: 1px solid rgba(255, 255, 255, .08);
+
+    margin: 38px 0 19px;
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   44. FOOTER BOTTOM
+   ========================================================= */
+
+.footer-bottom {
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: #817B88;
+
+    font-size: 11px;
+
+    margin: 0;
+}
+
+
+/* =========================================================
+   45. GENERAL BUTTON
+   ========================================================= */
+
+.btn {
+    transition: var(--transition);
+}
+
+
+/* =========================================================
+   46. RESPONSIVE - TABLET
+   ========================================================= */
+
+@media (max-width: 991.98px) {
+
+    .navbar {
+        min-height: 70px;
+    }
+
+    .navbar .container {
+        min-height: 70px;
+    }
+
+    .navbar-collapse {
+        margin-top: 12px;
+
+        padding: 10px;
+
+        background: white;
+
+        border: 1px solid var(--border);
+
+        border-radius: 15px;
+
+        box-shadow: var(--shadow-sm);
+    }
+
+    .navbar-nav {
+        align-items: stretch !important;
+        gap: 2px;
+    }
+
+    .navbar .nav-link {
+        padding: 10px 12px !important;
+    }
+
+    .navbar .nav-link.active::after {
+        display: none;
+    }
+
+    .navbar .btn-login {
+        margin-top: 5px;
+        width: 100%;
+    }
+
+
+    /* HERO */
+
+    .hero-section {
+        min-height: 600px;
+
+        background-position: center 43%;
+    }
+
+    .hero-content {
+        padding: 40px 0;
+    }
+
+    .hero-content h1 {
+        font-size: 43px;
+    }
+
+    .hero-content h2 {
+        font-size: 22px;
+    }
+
+    .hero-content p {
+        font-size: 13.5px;
+    }
+
+    .hero-card {
+        max-width: 275px;
+    }
+
+
+    /* CATEGORY */
+
+    .category-section,
+    .vision-section,
+    .about-section {
+        padding: 70px 0;
+    }
+
+
+    /* ABOUT */
+
+    .about-image {
+        min-height: 315px;
+    }
+
+    .about-logo {
+        width: 190px;
+        height: 190px;
+    }
+
+
+    /* FOOTER */
+
+    .footer {
+        padding-top: 52px;
+    }
+}
+
+
+/* =========================================================
+   47. RESPONSIVE - MOBILE
+   ========================================================= */
+
+@media (max-width: 767.98px) {
+
+    /* NAVBAR */
+
+    .navbar {
+        min-height: 66px;
+    }
+
+    .navbar .container {
+        min-height: 66px;
+    }
+
+    .logotakalar {
+        width: 40px;
+        height: 40px;
+        margin-right: 8px;
+    }
+
+    .brand-name {
+        font-size: 14px;
+    }
+
+    .brand-subtitle {
+        font-size: 9.5px;
+    }
+
+
+    /* HERO */
+
+    .hero-section {
+        min-height: 690px;
+
+        background-position: center 40%;
+    }
+
+    .hero-content {
+        padding: 35px 8px 22px;
+
+        text-align: left;
+    }
+
+    .hero-badge {
+        font-size: 10px;
+
+        padding: 6px 11px;
+
+        margin-bottom: 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 34px;
+
+        letter-spacing: -.9px;
+
+        margin-bottom: 6px;
+    }
+
+    .hero-content h2 {
+        font-size: 19px;
+
+        line-height: 1.4;
+
+        margin-bottom: 14px;
+    }
+
+    .hero-content p {
+        font-size: 13px;
+
+        line-height: 1.7;
+
+        margin-bottom: 20px;
+    }
+
+    .hero-buttons {
+        width: 100%;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 8px;
+    }
+
+    .btn-primary-custom,
+    .btn-outline-custom {
+        width: 100%;
+
+        padding: 10px 17px;
+    }
+
+    .hero-card {
+        max-width: 255px;
+
+        padding: 23px 20px;
+
+        border-radius: 20px;
+    }
+
+    .hero-icon {
+        width: 59px;
+        height: 59px;
+
+        font-size: 24px;
+
+        border-radius: 17px;
+
+        margin-bottom: 14px;
+    }
+
+    .hero-card h4 {
+        font-size: 17px;
+    }
+
+    .hero-card p {
+        font-size: 12px;
+    }
+
+
+    /* INFO */
+
+    .info-section {
+        padding: 48px 0;
+    }
+
+    .info-card {
+        padding: 21px 19px;
+    }
+
+
+    /* SECTIONS */
+
+    .category-section,
+    .vision-section,
+    .about-section {
+        padding: 57px 0;
+    }
+
+    .section-heading {
+        margin-bottom: 30px;
+    }
+
+    .section-heading > span,
+    .section-label {
+        font-size: 9.5px;
+
+        letter-spacing: 1.3px;
+    }
+
+    .section-heading h2 {
+        font-size: 25px;
+    }
+
+    .section-heading p {
+        font-size: 12.5px;
+    }
+
+
+    /* CATEGORY */
+
+    .category-card {
+        padding: 22px 18px 20px;
+
+        border-radius: 17px;
+    }
+
+    .category-icon {
+        width: 82px;
+        height: 82px;
+
+        padding: 10px;
+
+        border-radius: 21px;
+
+        margin-bottom: 15px;
+    }
+
+    .category-card h4 {
+        font-size: 15px;
+    }
+
+    .category-card p {
+        font-size: 12px;
+
+        min-height: auto;
+    }
+
+
+    /* VISION */
+
+    .vision-card,
+    .mission-card {
+        padding: 23px 19px;
+
+        border-radius: 19px;
+    }
+
+    .vision-icon,
+    .mission-icon {
+        width: 49px;
+        height: 49px;
+
+        font-size: 20px;
+
+        border-radius: 14px;
+    }
+
+    .vision-card h3,
+    .mission-card h3 {
+        font-size: 19px;
+    }
+
+    .vision-card > p {
+        font-size: 12.5px;
+
+        line-height: 1.8;
+    }
+
+    .mission-title {
+        gap: 10px;
+
+        margin-bottom: 17px;
+    }
+
+    .mission-item {
+        padding: 9px 8px;
+
+        gap: 9px;
+
+        border-radius: 11px;
+    }
+
+    .mission-item > span {
+        width: 30px;
+        height: 30px;
+
+        font-size: 9.5px;
+
+        border-radius: 9px;
+    }
+
+    .mission-item p {
+        font-size: 12px;
+
+        line-height: 1.65;
+
+        margin-top: 4px;
+    }
+
+
+    /* ABOUT */
+
+    .about-image {
+        min-height: 265px;
+
+        padding: 23px;
+
+        border-radius: 21px;
+
+        margin-bottom: 5px;
+    }
+
+    .about-logo {
+        width: 165px;
+        height: 165px;
+
+        padding: 19px;
+    }
+
+    .about-section h2 {
+        font-size: 27px;
+    }
+
+    .about-section p {
+        font-size: 13px;
+
+        line-height: 1.75;
+    }
+
+
+    /* CTA */
+
+    .cta-section {
+        padding: 55px 15px;
+    }
+
+    .cta-icon {
+        width: 40px;
+        height: 40px;
+
+        font-size: 22px;
+
+        border-radius: 10px;
+    }
+
+    .cta-box h2 {
+        font-size: 20px;
+    }
+
+    .cta-box p {
+        font-size: 12.5px;
+    }
+
+    .btn-white-custom {
+        width: 100%;
+
+        max-width: 290px;
+    }
+
+
+    /* FOOTER */
+
+    .footer {
+        padding: 40px 0 17px;
+    }
+
+    .footer-brand {
+        margin-bottom: 11px;
+    }
+
+    .footer h5 {
+        margin-top: 10px;
+    }
+
+    .footer hr {
+        margin-top: 28px;
+    }
+
+    .footer-logo {
+        width: 30px;
+        height: 30px;
+        padding: 3px;
+    }
+
+    .footer-brand h4 {
+        font-size: 11px;
+    }
+
+    .footer-brand p {
+        font-size: 10px;
+    }
+}
+
+
+/* =========================================================
+   48. SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 575.98px) {
+
+    .navbar-brand {
+        margin-right: 10px;
+    }
+
+    .logotakalar {
+        width: 37px;
+        height: 37px;
+    }
+
+    .brand-name {
+        font-size: 13px;
+    }
+
+    .brand-subtitle {
+        font-size: 9px;
+    }
+
+
+    .hero-section {
+        min-height: 675px;
+
+        background-position: center 38%;
+    }
+
+    .hero-content h1 {
+        font-size: 31px;
+    }
+
+    .hero-content h2 {
+        font-size: 18px;
+    }
+
+    .hero-content p {
+        font-size: 12.5px;
+    }
+
+    .hero-card {
+        max-width: 240px;
+
+        padding: 21px 17px;
+    }
+
+    .hero-icon {
+        width: 53px;
+        height: 53px;
+
+        font-size: 21px;
+    }
+
+
+    .category-icon {
+        width: 78px;
+        height: 78px;
+    }
+
+    .about-logo {
+        width: 150px;
+        height: 150px;
+    }
+
+    .about-image {
+        min-height: 240px;
+    }
+
+    .cta-box h2 {
+        font-size: 22px;
+    }
+
+    .footer-logo {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+
+/* =========================================================
+   49. EXTRA SMALL
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    .brand-name {
+        font-size: 12px;
+    }
+
+    .brand-subtitle {
+        font-size: 8.5px;
+    }
+
+    .hero-section {
+        min-height: 660px;
+
+        background-position: center 36%;
+    }
+
+    .hero-content h1 {
+        font-size: 28px;
+    }
+
+    .hero-content h2 {
+        font-size: 16px;
+    }
+
+    .hero-content p {
+        font-size: 12px;
+    }
+
+    .category-card {
+        padding: 21px 15px;
+    }
+
+    .category-icon {
+        width: 74px;
+        height: 74px;
+
+        padding: 8px;
+    }
+
+    .mission-item p {
+        font-size: 11.5px;
+    }
+
+    .footer-logo {
+        width: 29px;
+        height: 29px;
+    }
+}
+
+
+/* =========================================================
+   50. ACCESSIBILITY
+   ========================================================= */
+
+:focus-visible {
+    outline: 3px solid rgba(142, 122, 181, .30);
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   51. REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+}
+
+
+/* =========================================================
+   END
+   ========================================================= */

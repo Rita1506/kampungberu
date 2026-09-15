@@ -1,0 +1,163 @@
+/* =========================================================
+   SI PA'MASE-MASE
+   RESPONSIVE CSS
+   ========================================================= */
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 991px) {
+
+    .hero {
+        padding: 60px 0;
+    }
+
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+
+    .section {
+        padding: 55px 0;
+    }
+
+
+    .navbar .nav-link {
+        margin-left: 0;
+
+        margin-top: 3px;
+    }
+
+
+    .form-card {
+        padding: 25px;
+    }
+
+}
+
+
+/* =========================================================
+   HP
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+    .hero {
+        padding: 45px 0;
+    }
+
+
+    .hero h1 {
+        font-size: 29px;
+    }
+
+
+    .hero p {
+        font-size: 15px;
+    }
+
+
+    .hero .btn {
+        width: 100%;
+
+        margin-bottom: 10px;
+    }
+
+
+    .section {
+        padding: 45px 0;
+    }
+
+
+    .section-title {
+        font-size: 25px;
+    }
+
+
+    .section-subtitle {
+        font-size: 14px;
+
+        margin-bottom: 30px;
+    }
+
+
+    .custom-card,
+    .category-card,
+    .info-card {
+        padding: 20px;
+    }
+
+
+    .form-card {
+        padding: 20px;
+    }
+
+
+    .status-result {
+        padding: 20px;
+    }
+
+
+    .cta-section {
+        padding: 45px 15px;
+    }
+
+
+    footer {
+        padding-top: 30px;
+    }
+
+}
+
+
+/* =========================================================
+   HP KECIL
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .navbar-brand {
+        font-size: 17px;
+    }
+
+
+    .navbar-brand img {
+        width: 35px;
+
+        height: 35px;
+    }
+
+
+    .hero h1 {
+        font-size: 25px;
+    }
+
+
+    .hero p {
+        font-size: 14px;
+    }
+
+
+    .category-icon {
+        width: 65px;
+
+        height: 65px;
+    }
+
+
+    .form-card {
+        padding: 16px;
+    }
+
+
+    .btn-primary-custom,
+    .btn-outline-custom {
+        padding: 10px 15px;
+
+        font-size: 14px;
+    }
+
+}
