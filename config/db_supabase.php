@@ -40,15 +40,20 @@ function sdb_konfigurasi(): array
     $file_rahasia = __DIR__ . '/rahasia.php';
     $rahasia = is_file($file_rahasia) ? (array) require $file_rahasia : [];
 
+    // Nama baku SUPABASE_*; nama pendek (url/anon_key/service_key)
+    // diterima juga bila Environment Variable dibuat dengan nama itu.
     $konf = [
         'url'         => rtrim(
             (string) (getenv('SUPABASE_URL')
+                ?: getenv('url')
                 ?: ($rahasia['url'] ?? '')),
             '/'
         ),
         'service_key' => (string) (getenv('SUPABASE_SERVICE_KEY')
+            ?: getenv('service_key')
             ?: ($rahasia['service_key'] ?? '')),
         'anon_key'    => (string) (getenv('SUPABASE_ANON_KEY')
+            ?: getenv('anon_key')
             ?: ($rahasia['anon_key'] ?? '')),
     ];
 
@@ -192,6 +197,24 @@ function sdb_normalisasi_sql(string $sql): string
 // Komunikasi HTTP ke PostgREST
 // -----------------------------------------------------
 
+/**
+ * Header respons HTTP terakhir dari pemanggilan berbasis
+ * file_get_contents (jalur cadangan tanpa cURL).
+ *
+ * PHP 8.4 menyediakan http_get_last_response_headers(); variabel
+ * ajaib $http_response_header didepresiasi sejak PHP 8.5.
+ */
+if (!function_exists('sdb_header_terakhir')) {
+    function sdb_header_terakhir(): array
+    {
+        if (function_exists('http_get_last_response_headers')) {
+            $header = http_get_last_response_headers();
+            return is_array($header) ? $header : [];
+        }
+        return [];
+    }
+}
+
 function sdb_kirim_sql(SdbKoneksi $koneksi, string $sql, array $params): ?array
 {
     $sql = sdb_normalisasi_sql($sql);
@@ -284,10 +307,17 @@ function sdb_kirim_sql(SdbKoneksi $koneksi, string $sql, array $params): ?array
             ],
         ]);
 
+        // Deklarasikan lebih dulu agar tidak dianggap variabel
+        // ajaib $http_response_header (didepresiasi PHP 8.5).
+        $http_response_header = [];
         $raw = @file_get_contents($endpoint, false, $konteks);
 
-        if (isset($http_response_header[0])
-            && preg_match('#HTTP/\S+\s+(\d{3})#', $http_response_header[0], $m)) {
+        $header_terakhir = function_exists('http_get_last_response_headers')
+            ? sdb_header_terakhir()
+            : $http_response_header;
+
+        if (isset($header_terakhir[0])
+            && preg_match('#HTTP/\S+\s+(\d{3})#', $header_terakhir[0], $m)) {
             $code = (int) $m[1];
         }
 
