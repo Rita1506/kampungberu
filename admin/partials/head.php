@@ -36,6 +36,9 @@ $menu_aktif = $menu_aktif ?? '';
     <!-- Satu design system untuk seluruh panel admin -->
     <link rel="stylesheet" href="<?= $root ?>assets/css/admin.css">
 
+    <!-- Perbaikan UX: sidebar mobile & overlay loading -->
+    <link rel="stylesheet" href="<?= $root ?>assets/css/ux.css">
+
 </head>
 
 <body class="admin-app">

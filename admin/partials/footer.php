@@ -16,6 +16,9 @@
 
     <script src="<?= $root ?>assets/js/script.js"></script>
 
+    <!-- Overlay loading saat form dikirim (cegah klik ganda) -->
+    <script src="<?= $root ?>assets/js/ux-loading.js"></script>
+
 </body>
 
 </html>

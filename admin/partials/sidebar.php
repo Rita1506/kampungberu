@@ -36,9 +36,17 @@ $daftar_menu = [
             <strong>SI PA'MASE-MASE</strong>
             <small>Panel Admin Desa</small>
         </span>
+        <button
+            type="button"
+            class="sidebar-close"
+            id="sidebar-close"
+            aria-label="Tutup menu navigasi"
+        >
+            <i class="bi bi-x-lg"></i>
+        </button>
     </div>
 
-    <nav class="sidebar-nav">
+    <nav class="sidebar-nav sidebar-nav-menu">
 
         <?php foreach ($daftar_menu as $judul_grup => $menu_grup): ?>
 
@@ -60,7 +68,7 @@ $daftar_menu = [
 
     </nav>
 
-    <nav class="sidebar-nav" style="padding-top:0;">
+    <nav class="sidebar-nav sidebar-nav-bawah">
         <a href="<?= $root ?>auth/logout.php" class="sidebar-link logout">
             <i class="bi bi-box-arrow-right"></i>
             <span>Logout</span>
