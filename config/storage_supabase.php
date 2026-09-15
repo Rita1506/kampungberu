@@ -29,12 +29,16 @@ function storage_konfigurasi(): array
 
     $konf = [
         'url'    => rtrim(
-            (string) (getenv('SUPABASE_URL') ?: ($rahasia['url'] ?? '')),
+            (string) (getenv('SUPABASE_URL')
+                ?: getenv('url')
+                ?: ($rahasia['url'] ?? '')),
             '/'
         ),
         'kunci'  => (string) (getenv('SUPABASE_SERVICE_KEY')
+            ?: getenv('service_key')
             ?: ($rahasia['service_key'] ?? '')),
         'bucket' => (string) (getenv('SUPABASE_BUCKET')
+            ?: getenv('bucket')
             ?: ($rahasia['bucket'] ?? 'foto')),
     ];
 
@@ -223,6 +227,9 @@ function storage_http(string $method, string $objek, $isi = null, array $header_
         ],
     ]);
 
+    // Deklarasikan lebih dulu agar tidak dianggap variabel ajaib
+    // $http_response_header (didepresiasi PHP 8.5).
+    $http_response_header = [];
     $raw = @file_get_contents($url, false, $konteks);
 
     if ($raw === false) {
@@ -231,8 +238,12 @@ function storage_http(string $method, string $objek, $isi = null, array $header_
     }
 
     $code = 0;
-    if (isset($http_response_header[0])
-        && preg_match('#HTTP/\S+\s+(\d{3})#', $http_response_header[0], $m)) {
+    $header_terakhir = function_exists('http_get_last_response_headers')
+        ? sdb_header_terakhir()
+        : $http_response_header;
+
+    if (isset($header_terakhir[0])
+        && preg_match('#HTTP/\S+\s+(\d{3})#', $header_terakhir[0], $m)) {
         $code = (int) $m[1];
     }
 
