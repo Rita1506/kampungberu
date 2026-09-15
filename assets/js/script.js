@@ -8,7 +8,7 @@
    DOCUMENT READY
    ========================================================= */
 
-document.addEventListener("DOMContentLoaded", function () {
+   document.addEventListener("DOMContentLoaded", function () {
 
     console.log("SI PA'MASE-MASE berhasil dimuat.");
 
@@ -387,6 +387,9 @@ function initMobileSidebar() {
     const backdrop =
         document.getElementById("sidebarBackdrop");
 
+    const tombolTutup =
+        document.getElementById("sidebar-close");
+
 
     if (!sidebar || !toggle) {
         return;
@@ -431,6 +434,41 @@ function initMobileSidebar() {
         backdrop.addEventListener("click", tutupSidebar);
 
     }
+
+
+    /* Tombol X di dalam sidebar (layar sentuh) */
+    if (tombolTutup) {
+
+        tombolTutup.addEventListener("click", tutupSidebar);
+
+    }
+
+
+    /* Tombol Escape juga menutup sidebar */
+    document.addEventListener("keydown", function (event) {
+
+        if (event.key === "Escape" &&
+            sidebar.classList.contains("show")) {
+
+            tutupSidebar();
+
+        }
+
+    });
+
+
+    /* Saat layar kembali ke ukuran desktop, bersihkan
+       keadaan terbuka agar tidak nyangkut. */
+    window.addEventListener("resize", function () {
+
+        if (window.innerWidth > 991 &&
+            sidebar.classList.contains("show")) {
+
+            tutupSidebar();
+
+        }
+
+    });
 
 
     /* Setelah memilih menu di layar kecil, sidebar langsung tertutup */
