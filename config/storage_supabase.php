@@ -179,7 +179,8 @@ function storage_http(string $method, string $objek, $isi = null, array $header_
             $code = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
             $err  = curl_error($ch);
             $errno = curl_errno($ch);
-            curl_close($ch);
+            // curl_close() tidak dipanggil: tidak berefek sejak PHP 8.0
+            // dan didepresiasi sejak PHP 8.5 (handle ditutup otomatis).
 
             if ($raw !== false) {
                 return ['code' => $code, 'body' => (string) $raw];

@@ -267,7 +267,8 @@ function sdb_kirim_sql(SdbKoneksi $koneksi, string $sql, array $params): ?array
             $code = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
             $error_curl = curl_error($ch);
             $errno      = curl_errno($ch);
-            curl_close($ch);
+            // curl_close() tidak dipanggil: tidak berefek sejak PHP 8.0
+            // dan didepresiasi sejak PHP 8.5 (handle ditutup otomatis).
 
             if ($raw !== false) {
                 break;
