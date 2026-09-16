@@ -60,18 +60,6 @@
     background-position: center center;
     background-repeat: no-repeat;
 }
-
-    .hero {
-        padding: 45px 0;
-
-        /* Background khusus HP */
-        background-image: url("../img/fotodesa2.jpe");
-        background-size: cover;
-        background-position: center center;
-        background-repeat: no-repeat;
-    }
-
-
     .hero h1 {
         font-size: 29px;
     }
