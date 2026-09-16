@@ -10,7 +10,7 @@
 
 @media (max-width: 991px) {
 
-    .hero {
+    .hero-section {
         padding: 60px 0;
     }
 
@@ -55,11 +55,9 @@
                 rgba(45, 33, 56, .30) 100%
             ),
             url("../img/fotodesa2.jpe");
-
-        background-size: cover;
-        background-position: center center;
-        background-repeat: no-repeat;
     }
+
+}
 
 
     .hero h1 {
